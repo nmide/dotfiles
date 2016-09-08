@@ -1,0 +1,39 @@
+{
+  "name": "loparco-light-syntax",
+  "theme": "syntax",
+  "version": "2.1.0",
+  "description": "A light syntax theme that's easy on the eyes",
+  "keywords": [
+    "syntax",
+    "light",
+    "theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gloparco/loparco-light-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# loparco-syntax theme\n\nA light syntax theme that's easy on the eyes.\n\n![loparco-light-syntax screenshot](http://elemdage.com/github/loparco-light-syntax.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/gloparco/loparco-light-syntax/issues"
+  },
+  "homepage": "https://github.com/gloparco/loparco-light-syntax#readme",
+  "_id": "loparco-light-syntax@2.1.0",
+  "_shasum": "b748691aad969ad10fa4e175de1725d452428e4c",
+  "_resolved": "file:../d-116413-6759-h60z36/package.tgz",
+  "_from": "../d-116413-6759-h60z36/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,1 @@
+{"key":"block-title","patterns":[{"begin":"^\\.([^\\p{Blank}.].*)","captures":{"1":{"name":"markup.heading.blocktitle.asciidoc"}},"end":"$"}]}

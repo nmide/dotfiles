@@ -1,0 +1,48 @@
+{
+  "name": "light-bint-ui",
+  "theme": "ui",
+  "version": "1.0.4",
+  "description": "Atom Light Bint UI theme",
+  "keywords": [
+    "light",
+    "adaptive",
+    "ui",
+    "bint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiincGu/light-bint-ui.git"
+  },
+  "license": "MIT",
+  "main": "lib/main",
+  "engines": {
+    "atom": ">0.40.0"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.9.7"
+  },
+  "readme": "# light-bint-ui",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/MiincGu/light-bint-ui/issues"
+  },
+  "homepage": "https://github.com/MiincGu/light-bint-ui#readme",
+  "_id": "light-bint-ui@1.0.4",
+  "_shasum": "8e6d8ae09282241bd5e09f588752059b685c0117",
+  "_resolved": "file:../d-116419-29109-i1x11w/package.tgz",
+  "_from": "../d-116419-29109-i1x11w/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/main.coffee"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "tomorrow-syntax",
+  "theme": "syntax",
+  "version": "0.2.0",
+  "description": "Tomorrow syntax theme for Atom.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockymadden/tomorrow-syntax-theme.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.59.0"
+  },
+  "readme": "# Tomorrow Atom Syntax Theme\n\nAtom syntax theme using the ever popular Tomorrow colors:\n\n![](https://github.com/ChrisKempson/Tomorrow-Theme/raw/master/Images/Tomorrow-Palette.png)\n",
+  "readmeFilename": "readme.md",
+  "bugs": {
+    "url": "https://github.com/rockymadden/tomorrow-syntax-theme/issues"
+  },
+  "homepage": "https://github.com/rockymadden/tomorrow-syntax-theme#readme",
+  "_id": "tomorrow-syntax@0.2.0",
+  "_shasum": "185e3a4885b238b9b34f14bdbbc2efe24517bcea",
+  "_resolved": "file:../d-116415-14442-1fom8a9/package.tgz",
+  "_from": "../d-116415-14442-1fom8a9/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,65 @@
+(function() {
+  describe('Listing inline paragraph', function() {
+    var grammar;
+    grammar = null;
+    beforeEach(function() {
+      waitsForPromise(function() {
+        return atom.packages.activatePackage('language-asciidoc');
+      });
+      return runs(function() {
+        return grammar = atom.grammars.grammarForScopeName('source.asciidoc');
+      });
+    });
+    it('parses the grammar', function() {
+      expect(grammar).toBeDefined();
+      return expect(grammar.scopeName).toBe('source.asciidoc');
+    });
+    describe('Should tokenizes when', function() {
+      return it('contains simple phrase', function() {
+        var tokens;
+        tokens = grammar.tokenizeLines('[listing]\nA multi-line listing.');
+        expect(tokens).toHaveLength(2);
+        expect(tokens[0]).toHaveLength(3);
+        expect(tokens[0][0]).toEqualJson({
+          value: '[',
+          scopes: ['source.asciidoc', 'markup.block.listing.asciidoc']
+        });
+        expect(tokens[0][1]).toEqualJson({
+          value: 'listing',
+          scopes: ['source.asciidoc', 'markup.block.listing.asciidoc', 'markup.meta.attribute-list.asciidoc', 'entity.name.function.asciidoc']
+        });
+        expect(tokens[0][2]).toEqualJson({
+          value: ']',
+          scopes: ['source.asciidoc', 'markup.block.listing.asciidoc']
+        });
+        expect(tokens[1]).toHaveLength(1);
+        return expect(tokens[1][0]).toEqualJson({
+          value: 'A multi-line listing.',
+          scopes: ['source.asciidoc', 'markup.block.listing.asciidoc']
+        });
+      });
+    });
+    return describe('Should not tokenizes when', function() {
+      return it('beginning with space', function() {
+        var tokens;
+        tokens = grammar.tokenizeLines(' [listing]\nA multi-line listing.');
+        expect(tokens).toHaveLength(2);
+        expect(tokens[0]).toHaveLength(1);
+        expect(tokens[0][0]).toEqualJson({
+          value: ' [listing]',
+          scopes: ['source.asciidoc']
+        });
+        expect(tokens[1]).toHaveLength(1);
+        return expect(tokens[1][0]).toEqualJson({
+          value: 'A multi-line listing.',
+          scopes: ['source.asciidoc']
+        });
+      });
+    });
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL2hvbWUvbmljay8uYXRvbS9wYWNrYWdlcy9sYW5ndWFnZS1hc2NpaWRvYy9zcGVjL2Jsb2Nrcy9saXN0aW5nLWlubGluZS1wYXJhZ3JhcGgtZ3JhbW1hci1zcGVjLmNvZmZlZSIKICBdLAogICJuYW1lcyI6IFtdLAogICJtYXBwaW5ncyI6ICJBQUFBO0FBQUEsRUFBQSxRQUFBLENBQVMsMEJBQVQsRUFBcUMsU0FBQSxHQUFBO0FBQ25DLFFBQUEsT0FBQTtBQUFBLElBQUEsT0FBQSxHQUFVLElBQVYsQ0FBQTtBQUFBLElBRUEsVUFBQSxDQUFXLFNBQUEsR0FBQTtBQUNULE1BQUEsZUFBQSxDQUFnQixTQUFBLEdBQUE7ZUFDZCxJQUFJLENBQUMsUUFBUSxDQUFDLGVBQWQsQ0FBOEIsbUJBQTlCLEVBRGM7TUFBQSxDQUFoQixDQUFBLENBQUE7YUFHQSxJQUFBLENBQUssU0FBQSxHQUFBO2VBQ0gsT0FBQSxHQUFVLElBQUksQ0FBQyxRQUFRLENBQUMsbUJBQWQsQ0FBa0MsaUJBQWxDLEVBRFA7TUFBQSxDQUFMLEVBSlM7SUFBQSxDQUFYLENBRkEsQ0FBQTtBQUFBLElBU0EsRUFBQSxDQUFHLG9CQUFILEVBQXlCLFNBQUEsR0FBQTtBQUN2QixNQUFBLE1BQUEsQ0FBTyxPQUFQLENBQWUsQ0FBQyxXQUFoQixDQUFBLENBQUEsQ0FBQTthQUNBLE1BQUEsQ0FBTyxPQUFPLENBQUMsU0FBZixDQUF5QixDQUFDLElBQTFCLENBQStCLGlCQUEvQixFQUZ1QjtJQUFBLENBQXpCLENBVEEsQ0FBQTtBQUFBLElBYUEsUUFBQSxDQUFTLHVCQUFULEVBQWtDLFNBQUEsR0FBQTthQUVoQyxFQUFBLENBQUcsd0JBQUgsRUFBNkIsU0FBQSxHQUFBO0FBQzNCLFlBQUEsTUFBQTtBQUFBLFFBQUEsTUFBQSxHQUFTLE9BQU8sQ0FBQyxhQUFSLENBQXNCLGtDQUF0QixDQUFULENBQUE7QUFBQSxRQUtB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
+
+//# sourceURL=/home/nick/.atom/packages/language-asciidoc/spec/blocks/listing-inline-paragraph-grammar-spec.coffee

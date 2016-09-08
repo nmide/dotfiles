@@ -1,0 +1,141 @@
+(function() {
+  describe('Keyboard macro', function() {
+    var grammar;
+    grammar = null;
+    beforeEach(function() {
+      waitsForPromise(function() {
+        return atom.packages.activatePackage('language-asciidoc');
+      });
+      return runs(function() {
+        return grammar = atom.grammars.grammarForScopeName('source.asciidoc');
+      });
+    });
+    it('parses the grammar', function() {
+      expect(grammar).toBeDefined();
+      return expect(grammar.scopeName).toBe('source.asciidoc');
+    });
+    return describe('Should tokenizes when', function() {
+      it('simple key', function() {
+        var tokens;
+        tokens = grammar.tokenizeLine('foo kbd:[F3] bar').tokens;
+        expect(tokens).toHaveLength(6);
+        expect(tokens[0]).toEqualJson({
+          value: 'foo ',
+          scopes: ['source.asciidoc']
+        });
+        expect(tokens[1]).toEqualJson({
+          value: 'kbd',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'entity.name.function.asciidoc']
+        });
+        expect(tokens[2]).toEqualJson({
+          value: ':[',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        expect(tokens[3]).toEqualJson({
+          value: 'F3',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'string.unquoted.asciidoc']
+        });
+        expect(tokens[4]).toEqualJson({
+          value: ']',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        return expect(tokens[5]).toEqualJson({
+          value: ' bar',
+          scopes: ['source.asciidoc']
+        });
+      });
+      it('several keys', function() {
+        var tokens;
+        tokens = grammar.tokenizeLine('foo kbd:[Ctrl+Shift+T] bar').tokens;
+        expect(tokens).toHaveLength(6);
+        expect(tokens[0]).toEqualJson({
+          value: 'foo ',
+          scopes: ['source.asciidoc']
+        });
+        expect(tokens[1]).toEqualJson({
+          value: 'kbd',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'entity.name.function.asciidoc']
+        });
+        expect(tokens[2]).toEqualJson({
+          value: ':[',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        expect(tokens[3]).toEqualJson({
+          value: 'Ctrl+Shift+T',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'string.unquoted.asciidoc']
+        });
+        expect(tokens[4]).toEqualJson({
+          value: ']',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        return expect(tokens[5]).toEqualJson({
+          value: ' bar',
+          scopes: ['source.asciidoc']
+        });
+      });
+      it('contains ]', function() {
+        var tokens;
+        tokens = grammar.tokenizeLine('foo kbd:[Ctrl+\]] bar').tokens;
+        expect(tokens).toHaveLength(6);
+        expect(tokens[0]).toEqualJson({
+          value: 'foo ',
+          scopes: ['source.asciidoc']
+        });
+        expect(tokens[1]).toEqualJson({
+          value: 'kbd',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'entity.name.function.asciidoc']
+        });
+        expect(tokens[2]).toEqualJson({
+          value: ':[',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        expect(tokens[3]).toEqualJson({
+          value: 'Ctrl+',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'string.unquoted.asciidoc']
+        });
+        expect(tokens[4]).toEqualJson({
+          value: ']',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        return expect(tokens[5]).toEqualJson({
+          value: '] bar',
+          scopes: ['source.asciidoc']
+        });
+      });
+      return it('contains a label', function() {
+        var tokens;
+        tokens = grammar.tokenizeLine('foo btn:[Save] bar').tokens;
+        expect(tokens).toHaveLength(6);
+        expect(tokens[0]).toEqualJson({
+          value: 'foo ',
+          scopes: ['source.asciidoc']
+        });
+        expect(tokens[1]).toEqualJson({
+          value: 'btn',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'entity.name.function.asciidoc']
+        });
+        expect(tokens[2]).toEqualJson({
+          value: ':[',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        expect(tokens[3]).toEqualJson({
+          value: 'Save',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc', 'string.unquoted.asciidoc']
+        });
+        expect(tokens[4]).toEqualJson({
+          value: ']',
+          scopes: ['source.asciidoc', 'markup.macro.kbd.asciidoc']
+        });
+        return expect(tokens[5]).toEqualJson({
+          value: ' bar',
+          scopes: ['source.asciidoc']
+        });
+      });
+    });
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL2hvbWUvbmljay8uYXRvbS9wYWNrYWdlcy9sYW5ndWFnZS1hc2NpaWRvYy9zcGVjL2lubGluZXMva2JkLW1hY3JvLWdyYW1tYXItc3BlYy5jb2ZmZWUiCiAgXSwKICAibmFtZXMiOiBbXSwKICAibWFwcGluZ3MiOiAiQUFBQTtBQUFBLEVBQUEsUUFBQSxDQUFTLGdCQUFULEVBQTJCLFNBQUEsR0FBQTtBQUN6QixRQUFBLE9BQUE7QUFBQSxJQUFBLE9BQUEsR0FBVSxJQUFWLENBQUE7QUFBQSxJQUVBLFVBQUEsQ0FBVyxTQUFBLEdBQUE7QUFDVCxNQUFBLGVBQUEsQ0FBZ0IsU0FBQSxHQUFBO2VBQ2QsSUFBSSxDQUFDLFFBQVEsQ0FBQyxlQUFkLENBQThCLG1CQUE5QixFQURjO01BQUEsQ0FBaEIsQ0FBQSxDQUFBO2FBR0EsSUFBQSxDQUFLLFNBQUEsR0FBQTtlQUNILE9BQUEsR0FBVSxJQUFJLENBQUMsUUFBUSxDQUFDLG1CQUFkLENBQWtDLGlCQUFsQyxFQURQO01BQUEsQ0FBTCxFQUpTO0lBQUEsQ0FBWCxDQUZBLENBQUE7QUFBQSxJQVNBLEVBQUEsQ0FBRyxvQkFBSCxFQUF5QixTQUFBLEdBQUE7QUFDdkIsTUFBQSxNQUFBLENBQU8sT0FBUCxDQUFlLENBQUMsV0FBaEIsQ0FBQSxDQUFBLENBQUE7YUFDQSxNQUFBLENBQU8sT0FBTyxDQUFDLFNBQWYsQ0FBeUIsQ0FBQyxJQUExQixDQUErQixpQkFBL0IsRUFGdUI7SUFBQSxDQUF6QixDQVRBLENBQUE7V0FhQSxRQUFBLENBQVMsdUJBQVQsRUFBa0MsU0FBQSxHQUFBO0FBRWhDLE1BQUEsRUFBQSxDQUFHLFlBQUgsRUFBaUIsU0FBQSxHQUFBO0FBQ2YsWUFBQSxNQUFBO0FBQUEsUUFBQyxTQUFVLE9BQU8sQ0FBQyxZQUFSLENBQXFCLGtCQUFyQixFQUFWLE1BQUQsQ0FBQTtBQUFBLFFBQ0EsTUFBQSxDQUFPLE1BQVAs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
+
+//# sourceURL=/home/nick/.atom/packages/language-asciidoc/spec/inlines/kbd-macro-grammar-spec.coffee

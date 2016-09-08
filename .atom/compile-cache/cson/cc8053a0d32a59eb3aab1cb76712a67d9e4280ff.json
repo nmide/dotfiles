@@ -1,0 +1,1 @@
+{"*":{"core":{"disabledPackages":["php-class-tree","vim-mode","ex-mode","ex-mode-sort"],"themes":["isotope-light-ui","base16-tomorrow-dark-theme"]},"editor":{"fontFamily":"MonoSpace","fontSize":11},"exception-reporting":{"userId":"6bf3112a-f9bf-8eca-db81-beb6f297bb59"},"seti-ui":{"compactView":true},"welcome":{"showOnStartup":false}}}

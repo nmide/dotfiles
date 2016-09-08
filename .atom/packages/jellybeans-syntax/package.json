@@ -1,0 +1,34 @@
+{
+  "name": "jellybeans-syntax",
+  "theme": "syntax",
+  "version": "0.7.0",
+  "description": "A copy of nanotech's vim jellybeans color theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trevoke/jellybeans-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# jellybeans-syntax theme\n\nJellybeans theme, inspired by Nanotech's jellybeans color scheme for vim, available [here](https://github.com/nanotech/jellybeans.vim)\n\n![Screenshot](https://github.com/Trevoke/jellybeans-syntax/wiki/images/screenshot.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/trevoke/jellybeans-syntax/issues"
+  },
+  "homepage": "https://github.com/trevoke/jellybeans-syntax#readme",
+  "_id": "jellybeans-syntax@0.7.0",
+  "_shasum": "74b336c01f670345adf4762765b0a79ea1fef9f0",
+  "_resolved": "file:../d-116419-25187-18gyzft/package.tgz",
+  "_from": "../d-116419-25187-18gyzft/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

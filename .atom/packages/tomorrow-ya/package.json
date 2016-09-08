@@ -1,0 +1,35 @@
+{
+  "name": "tomorrow-ya",
+  "theme": "syntax",
+  "version": "1.0.2",
+  "private": false,
+  "description": "Yet Another Atom port of the Tomorrow theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forivall/atom-tomorrow-ya.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "## Tomorrow YA Syntax Theme\n\nTomorrow Yet Again is another Atom port of the Tomorrow theme, for syntax.\n\n![Tomorrow Syntax Theme](https://raw.githubusercontent.com/forivall/atom-tomorrow-ya/master/screenshot.png)\n\n### Installation\n\nRun the following command:\n\n```sh\napm install tomorrow-ya\n```\n\nThen go to `Atom > Preferences > Themes` and in the `Syntax Themes` dropdown, select `Tomorrow YA` from the list.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/forivall/atom-tomorrow-ya/issues"
+  },
+  "homepage": "https://github.com/forivall/atom-tomorrow-ya#readme",
+  "_id": "tomorrow-ya@1.0.2",
+  "_shasum": "d288bb690993ec92dfcca9024e1853af17569838",
+  "_resolved": "file:../d-116415-14342-1iuyc2l/package.tgz",
+  "_from": "../d-116415-14342-1iuyc2l/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

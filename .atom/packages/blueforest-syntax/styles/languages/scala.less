@@ -1,0 +1,31 @@
+.source.scala {
+  .meta {
+    &.bracket {
+      color: @syntax-text-color;
+    }
+  }
+
+  .class {
+    color: @light-blue;
+  }
+
+  .entity {
+    &.name.type.declaration {
+      color: @light-orange;
+    }
+
+    &.name.val.declaration {
+      color: @yellow;
+    }
+  }
+
+  .punctuation {
+    &.embedded {
+      color: @syntax-string-interpolation-inject;
+    }
+  }
+
+  .embedded {
+    color: @yellow;
+  }
+}

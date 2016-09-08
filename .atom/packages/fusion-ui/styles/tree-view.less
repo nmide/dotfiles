@@ -1,0 +1,117 @@
+@import "ui-variables";
+
+.tree-view {
+    padding:              0;
+    font-size:            @font-size;
+    background:           @tree-view-background-color;
+    vertical-align:       middle;
+
+    .entry:before {
+        background:       transparent;
+    }
+    .entry.selected:before {
+        background-color: @accent-color-subtle;
+    }
+    .file.selected .name,
+    .list-nested-item.selected > .header {
+        font-weight:      500 !important;
+    }
+
+    .project-root > .header.list-item {
+        line-height:      @tree-view-tab-height - @tab-indicator-size;
+        height:           @tree-view-tab-height;
+        text-align:       left;
+        vertical-align:   middle;
+        font-weight:      bold;
+        font-size:        @font-size;
+        border-bottom:    @tree-view-tab-indicator-size solid @tree-view-tab-border-color;
+        background:       @tree-view-tab-background-color;
+
+        &::before {
+            visibility:   hidden;
+        }
+    }
+    .project-root > .entries.list-tree {
+        margin:           10px 0;
+    }
+  }
+
+// gutter divider for left or right positioned tree view
+.left .tree-view-scroller {
+    &::after {
+        content:          '';
+        position:         absolute;
+        top:              0;
+        right:            0;
+        bottom:           0;
+        width:            1px;
+        background:       @tree-view-background-color;
+    }
+}
+.right .tree-view-scroller {
+    &::after {
+        content:          '';
+        position:         absolute;
+        top:              0;
+        left:             0;
+        bottom:           0;
+        width:            1px;
+        background:       @tree-view-background-color;
+    }
+}
+
+.tree-view-resizer {
+    .tree-view-resize-handle {
+        width:            10px;
+    }
+}
+
+//.list-tree > li.list-nested-item.status-modified > .list-item
+
+.list-tree > li > .header > .name {
+  color:                  rgba(255,255,255,100);
+}
+
+.list-tree > li > .name {
+  color:                  rgba(255,255,255,100);
+}
+
+.list-tree > li.status-modified > .header > .name {
+  color:                  rgb(253,132,64);
+}
+
+.list-tree > li.status-modified > .name {
+  color:                  rgb(253,132,64);
+}
+
+.list-tree > li.status-added > .header > .name {
+  color:                  rgb(43, 218, 119);
+}
+
+.list-tree > li.status-added > .name {
+  color:                  rgb(43, 218, 119);
+}
+
+.list-tree > li.status-ignored > .header > .name {
+  color:                  @text-color-ignored;
+}
+
+.list-tree > li.status-ignored > .name {
+  color:                  @text-color-ignored;
+}
+
+.list-tree > li.status-removed > .header > .name {
+  color:                  @text-color-removed;
+}
+
+.list-tree > li.status-removed > .name {
+  color:                  @text-color-removed;
+}
+
+.list-tree > li.status-renamed > .header > .name {
+  color:                  @text-color-renamed;
+}
+
+.list-tree > li.status-renamed > .name {
+  color:                  @text-color-renamed;
+}

@@ -1,0 +1,36 @@
+.source.json {
+  .meta.structure.dictionary {
+    .string {
+      color: @string;
+    }
+    .punctuation.definition {
+      color: @string-dark;
+      &.dictionary,
+      &.array {
+        color: @foreground;
+      }
+    }
+
+    .dictionary.value {
+      .string {
+        color: @keyword-alt;
+        .punctuation.definition {
+          color: @keyword-alt-dark;
+        }
+      }
+      .dictionary {
+        .string {
+          color: @string;
+          .punctuation.definition {
+            color: @string-dark;
+          }
+        }
+        .dictionary.value {
+          .string {
+            color: @keyword-alt;
+          }
+        }
+      }
+    }
+  }
+}

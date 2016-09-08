@@ -1,0 +1,1 @@
+{"key":"front-matter-block","patterns":[{"name":"markup.block.front-matter.asciidoc","begin":"\\A(-{3}$)","patterns":[{"include":"source.yaml"}],"end":"^(\\1)$"}]}

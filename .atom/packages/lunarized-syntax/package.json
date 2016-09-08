@@ -1,0 +1,34 @@
+{
+  "name": "lunarized-syntax",
+  "theme": "syntax",
+  "version": "0.4.0",
+  "description": "Solarized After Dark",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aclissold/lunarized-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "Lunarized\n=========\nA fork of the Atom version of the famous [Solarized] theme—with a moonlit aura.\n\nDesign Decisions\n----------------\n\nI love the harmonious blend of Solarized's accent colors and how well they all fit together.\nAfter all, the most important facet of a syntax theme is to be able to easily differentiate\nthe different tokens in source code. And Solarized manages to achieve this while still\nlooking beautiful.\n\nHowever, the dark blue \"in the shade of a tree\" background (as well as the yellow\nmorning-sun variant) break this neutrality. Lunarized fixes it by completely\ndesaturating the base colors as well as lowering each of their brightnesses by 15%.\nPlain text has also been bumped from the base0 to base1 color to compensate.\n\nInstallation\n------------\n\n### To get the Atom package:\n\n* Bring up Settings via `cmd-,`\n* Go to the Themes page\n* Search for Lunarized and install\n\n### To get the Vim colorsheme:\n\nWith [pathogen]:\n\n    cd ~/.vim/bundle\n    git clone https://github.com/aclissold/lunarized-syntax\n\nWithout pathogen:\n\n    mkdir -p ~/.vim/colors\n    cd ~/.vim/colors\n    curl -O https://raw.githubusercontent.com/aclissold/lunarized-syntax/master/lunarized.vim\n\nScreenshots\n-----------\n\n![Atom Screenshot](https://cloud.githubusercontent.com/assets/4397642/5238939/34d4b03c-789c-11e4-9aee-7184b902f848.png)\n![Vim Screenshot](https://cloud.githubusercontent.com/assets/4397642/5238940/3729b8aa-789c-11e4-9ebb-b161cbcee591.png)\n\n[Solarized]: http://ethanschoonover.com/solarized\n[pathogen]: https://github.com/tpope/vim-pathogen\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/aclissold/lunarized-syntax/issues"
+  },
+  "homepage": "https://github.com/aclissold/lunarized-syntax#readme",
+  "_id": "lunarized-syntax@0.4.0",
+  "_shasum": "61d2615f7b4611796aef2c349a1958bb57a9a0f0",
+  "_resolved": "file:../d-116516-25924-uc9dgy/package.tgz",
+  "_from": "../d-116516-25924-uc9dgy/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,1 @@
+{"key":"comment","patterns":[{"name":"comment.block.asciidoc","begin":"^(/{4,})$","patterns":[{"include":"#inlines"}],"end":"^\\1$"},{"name":"comment.inline.asciidoc","match":"^/{2}([^/].*)?$"}]}

@@ -1,0 +1,59 @@
+.colorize-headings(@n: 1) when(@n <= 6) {
+  .markup.heading.heading-@{n} {
+    color: spin(@special, 10 * (@n - 1));
+  }
+  .colorize-headings(@n + 1);
+}
+
+.source.gfm {
+  .colorize-headings;
+  .link {
+    color: @keyword-alt;
+  }
+  .list {
+    color: @special;
+  }
+  .support{
+    background: fadeout(@keyword-alt, 40%);
+    color: @foreground;
+    border-radius: 3px;
+  }
+  .quote {
+    color: @syntax-text-color;
+    .support {
+      color: @foreground;
+      border-radius: 0;
+    }
+  }
+  .table {
+    .border.pipe,
+    .border.header {
+      color: @keyword;
+    }
+    .border.alignment {
+      color: @keyword-alt;
+    }
+  }
+  .markup {
+  -webkit-font-smoothing: auto;
+    &.link {
+      color: @special-dark;
+    }
+    &.bold {
+      color: @syntax-text-color;
+      font-weight: bold;
+    }
+    &.italic {
+      color: @syntax-text-color;
+      font-style: italic;
+    }
+    &.strike {
+      text-decoration: line-through;
+    }
+    &.raw {
+      background: fadeout(white, 65%);
+      border: 1px solid @muted;
+      border-radius: 6px;
+    }
+  }
+}

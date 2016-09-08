@@ -1,0 +1,48 @@
+// Colors
+@dark-grey: #2E3436;
+@semi-dark-grey: #555753;
+@semi-light-grey: #D3D7CF;
+@light-grey: #EEEEEC;
+
+@text-green: #00FF00;
+@red: #CC0000;
+@light-red: @red; //#EF2929;
+@orange: #F57900;
+@light-orange: #FCAF3E;
+@green: #4E9A06;
+@light-green: #8AE234;
+@gold: #C4A000;
+@light-gold: #FCE94F;
+@blue: #3465A4;
+@light-blue: @blue; //#729FCF;
+@purple: #75507B;
+@light-purple: @purple;//#AD7FA8;
+@cyan: #06989A;
+@light-cyan: lighten(saturate(@cyan,20%),25%); //#34E2E2;
+
+// General colors
+@syntax-text-color: @text-green;
+@syntax-cursor-color: @text-green;
+@syntax-selection-color: darken(@text-green,20%);
+@syntax-background-color: #111111;
+
+// Guide colors
+@syntax-wrap-guide-color: fade(@text-green,90%);
+@syntax-indent-guide-color: fade(@text-green, 85%);
+@syntax-invisible-character-color: fade(@text-green,80%);;
+
+// For find and replace markers
+@syntax-result-marker-color: darken(@text-green,40%);
+@syntax-result-marker-color-selected: @text-green;
+
+// Gutter colors
+@syntax-gutter-text-color: @syntax-text-color;
+@syntax-gutter-text-color-selected: @syntax-gutter-text-color;
+@syntax-gutter-background-color: lighten(@syntax-background-color, 3%);
+@syntax-gutter-background-color-selected: @syntax-selection-color;
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed: @blue;
+@syntax-color-added: @green;
+@syntax-color-modified: @light-gold;
+@syntax-color-removed: @red;

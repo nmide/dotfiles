@@ -1,0 +1,49 @@
+.js {
+  &.keyword.operator {
+    color: @aqua;
+  }
+
+  &.variable {
+    color: @foreground;
+
+    &.class {
+      color: @red;
+    }
+
+    &.language.this {
+      color: @red;
+    }
+  }
+
+  &.support.object {
+    color: @yellow;
+  }
+
+  &.meta.brace.square {
+    color: @blue;
+  }
+
+  &.meta.brace.curly {
+    color: @red;
+  }
+
+  &.meta.brace.round {
+    color: @aqua;
+  }
+
+  &.punctuation {
+    &.separator.key-value {
+      color: @aqua;
+    }
+
+    &.definition {
+      &.string {
+        color: @green;
+      }
+
+      &.parameters {
+        color: @aqua;
+      }
+    }
+  }
+}

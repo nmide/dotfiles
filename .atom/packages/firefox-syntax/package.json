@@ -1,0 +1,61 @@
+{
+  "name": "firefox-syntax",
+  "main": "./lib/main",
+  "theme": "syntax",
+  "version": "2.0.0",
+  "description": "Developer Tools syntax for Atom. Includes light and dark themes",
+  "keywords": [
+    "firefox",
+    "dark",
+    "light",
+    "syntax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gt-rios/firefox-light-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "configSchema": {
+    "subTheme": {
+      "description": "Choose the one of the different sub themes",
+      "type": "string",
+      "default": "default-light",
+      "enum": [
+        {
+          "value": "default-dark",
+          "label": "Default Dark"
+        },
+        {
+          "value": "default-light",
+          "label": "Default Light"
+        }
+      ]
+    }
+  },
+  "readme": "# Firefox Syntax theme\n\n[Developer Tools](https://developer.mozilla.org/en/docs/Tools) syntax for\n[Atom](https://atom.io). Includes light and dark themes.\nFirefox Syntax supports all of the\n[Atom core languages](https://github.com/atom/language-examples#languages).\n\n![](https://cloud.githubusercontent.com/assets/17343833/16570267/cd9c49a2-4207-11e6-874f-4fae097613ed.gif)\n\n> The font used in the screenshot is [Fira Mono](https://github.com/mozilla/Fira).\n\n## Install\n\nRun the following command:\n\n```bash\napm install firefox-syntax\n```\n\nTo activate, go to the __Settings > Themes__ section and select “Firefox” from\nthe __Syntax Themes__ drop-down menu.\n\n## Settings\n\nOnce activated, you can change the __Sub Theme__ in the theme settings.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/gt-rios/firefox-light-syntax/issues"
+  },
+  "homepage": "https://github.com/gt-rios/firefox-light-syntax#readme",
+  "_id": "firefox-syntax@2.0.0",
+  "_shasum": "0d5bb1cbca0d147263e3de5b2f0c25e270633c1c",
+  "_resolved": "file:../d-11666-14496-1md8uz6/package.tgz",
+  "_from": "../d-11666-14496-1md8uz6/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "lib/main.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

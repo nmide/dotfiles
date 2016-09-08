@@ -1,0 +1,20 @@
+{
+    "colors": {
+        "order": 1,
+        "type": "object",
+        "properties": {
+            "abaseColor": {
+                "title": "Primary color",
+                "description": "Changes the main theme color.",
+                "type": "color",
+                "default": "#009688"
+            },
+            "accentColor": {
+                "title": "Accent color",
+                "description": "Accent color used to underline active tabs.",
+                "type": "color",
+                "default": "#FFFFFF"
+            }
+        }
+    }
+}

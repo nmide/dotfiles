@@ -1,0 +1,34 @@
+{
+  "name": "atom-blue-dawn",
+  "theme": "syntax",
+  "version": "0.0.1",
+  "description": "Atom BlueDawn theme ported from Sublime",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rncrtr/atom-blue-dawn.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# blue-dawn theme\n\nA short description of your theme.\n\n![A screenshot of your theme](https://f.cloud.github.com/assets/69169/2289498/4c3cb0ec-a009-11e3-8dbd-077ee11741e5.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/rncrtr/atom-blue-dawn/issues"
+  },
+  "homepage": "https://github.com/rncrtr/atom-blue-dawn#readme",
+  "_id": "atom-blue-dawn@0.0.1",
+  "_shasum": "43f91c8897e601370caf6296083ad7da055308fa",
+  "_resolved": "file:../d-116516-25726-1lfceu8/package.tgz",
+  "_from": "../d-116516-25726-1lfceu8/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

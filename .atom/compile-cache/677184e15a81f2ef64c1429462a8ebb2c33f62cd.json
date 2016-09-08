@@ -1,0 +1,1 @@
+{"key":"line-break","patterns":[{"match":"(?<=\\S)\\p{Blank}+(\\+)$","captures":{"1":{"name":"variable.line-break.asciidoc"}}}]}

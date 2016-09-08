@@ -1,0 +1,86 @@
+// Colors
+
+@text-color: #dad9d9;
+@text-color-subtle: #9e9e9e;
+@text-color-highlight: #bee92f;
+@text-color-selected: @text-color-highlight;
+
+@text-color-info: #5293d8;
+@text-color-success: #2BDA77;
+@text-color-warning: #e2ff2d;
+@text-color-error: #c00;
+
+@text-color-ignored: @text-color-subtle;
+@text-color-added: @text-color-success;
+@text-color-renamed: @text-color-info;
+@text-color-modified: @text-color-warning;
+@text-color-removed: @text-color-error;
+
+@background-color-info: #085c95;
+@background-color-success: #17ca65;
+@background-color-warning: #ffaa2c;
+@background-color-error: #c00;
+@background-color-highlight: rgba(255, 255, 255, 0.07);
+@background-color-selected: #15a3c8;
+
+@app-background-color: #252e3c;
+
+@base-background-color: lighten(@tool-panel-background-color, 1%);
+@base-border-color: rgba(19, 44, 77, 0.5);
+
+@pane-item-background-color: @base-background-color;
+@pane-item-border-color: rgba(19, 44, 77, 0.5);
+
+@input-background-color: #1a232f;
+@input-border-color: @base-border-color;
+
+@tool-panel-background-color: #293641;
+@tool-panel-border-color: @base-border-color;
+
+@inset-panel-background-color: #1b212d;
+@inset-panel-border-color: @base-border-color;
+
+@panel-heading-background-color: #2b3c4e;
+@panel-heading-border-color: fadein(@base-border-color, 10%);
+
+@overlay-background-color: #1b2129;
+@overlay-border-color: @background-color-highlight;
+
+@button-background-color: #334352;
+@button-background-color-hover: lighten(@button-background-color, 5%);
+@button-background-color-selected: #435261;
+@button-border-color: @base-border-color;
+
+@tab-bar-background-color: #1a232f;
+@tab-bar-border-color: darken(@tab-background-color-active, 10%);
+@tab-background-color: #323b4b;
+@tab-background-color-active: #1a232f;
+@tab-border-color: #707683;
+
+@tree-view-background-color: #1a232f;
+@tree-view-border-color: @tool-panel-border-color;
+
+@scrollbar-background-color: #222425; // Needs to be opaque -> atom/atom/issues/4578
+@scrollbar-color: rgba(92, 92, 92, 0.5);
+
+@ui-site-color-1: @background-color-success;
+@ui-site-color-2: @background-color-info;
+@ui-site-color-3: @background-color-warning;
+@ui-site-color-4: #db2ff4;
+@ui-site-color-5: #f5e11d;
+
+
+@font-size: 11px;
+@input-font-size: 12px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding: 5px;
+@component-icon-padding: 5px;
+@component-icon-size: 10px;
+@component-line-height: 16px;
+@component-border-radius: 4px;
+
+@tab-height: 21px;
+
+@font-family: Source Code Pro;

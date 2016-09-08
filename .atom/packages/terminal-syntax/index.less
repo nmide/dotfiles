@@ -1,0 +1,195 @@
+@import 'syntax-variables';
+
+.editor-colors {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+.editor {
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+
+    .cursor-line {
+      background-color: @syntax-gutter-background-color-selected;
+    }
+  }
+
+  .line-number.cursor-line-no-selection {
+    background-color: @syntax-gutter-background-color-selected;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    border-color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+  .search-results .marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+  }
+
+  .search-results .marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+  }
+
+  .comment {
+    color: @semi-dark-grey;
+  }
+
+  .string {
+    color: @light-gold;
+  }
+
+  .constant.numeric {
+    color: @light-purple;
+  }
+
+  .constant.language {
+    color: @light-purple;
+  }
+
+  .constant.character,
+  .constant.other {
+    color: @light-purple;
+  }
+
+  .keyword {
+    color: @light-red;
+  }
+
+  .storage {
+    color: @light-red;
+  }
+
+  .storage.type {
+    font-style: italic;
+    color: @light-cyan;
+  }
+
+  .entity.name.class {
+    text-decoration: underline;
+    color: @light-grey;
+  }
+
+  .entity.other.inherited-class {
+    font-style: italic;
+    text-decoration: underline;
+    color: @light-grey;
+  }
+
+  .entity.name.function {
+    color: @light-grey;
+  }
+
+  .entity.name.instance {
+    color: @light-cyan;
+  }
+
+  .variable.parameter {
+    font-style: italic;
+    color: @orange;
+  }
+
+  .entity.name.tag {
+    color: @light-red;
+  }
+
+  .entity.other.attribute-name {
+    color: @light-grey;
+  }
+
+  .support.function {
+    color: @light-cyan;
+  }
+
+  .support.constant {
+    color: @light-cyan;
+  }
+
+  .support.type,
+  .support.class {
+    font-style: italic;
+    color: @light-cyan;
+  }
+
+  .invalid {
+    color: @light-grey;
+    background-color: @light-red;
+  }
+
+  .invalid.deprecated {
+    color: @light-grey;
+    background-color: @light-purple;
+  }
+
+  // Jade syntax
+  .class.jade {
+    color: @light-purple;
+  }
+
+  .gfm {
+    .markup {
+      &.heading {
+        color: @light-grey;
+        font-weight: bold;
+      }
+
+      &.underline {
+        color: @light-gold;
+        text-decoration: underline;
+      }
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .raw {
+      color: @light-cyan;
+    }
+
+    .variable.list {
+      color: @light-red;
+      font-weight: bold;
+    }
+
+    .link {
+      color: @green;
+
+      .entity {
+        color: @light-purple;
+      }
+    }
+  }
+  .meta {
+    &.brace {
+      &.curly,
+      &.square {
+        color: @light-blue;
+      }
+    }
+  }
+}

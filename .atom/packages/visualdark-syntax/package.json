@@ -1,0 +1,48 @@
+{
+  "name": "visualdark-syntax",
+  "theme": "syntax",
+  "version": "1.0.0",
+  "description": "Dark, blue, white",
+  "keywords": [
+    "syntax",
+    "theme",
+    "visual",
+    "dark",
+    "blue",
+    "white",
+    "cpp",
+    "c",
+    "less",
+    "css",
+    "c++",
+    "Makefile"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tym17/visualdark-syntax.git"
+  },
+  "license": "Mozilla Public License 2.0",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# VisualDark syntax theme\n\nA dark theme with a blue touch!\n\nAlso features nice cursor and shiny parenthesis match and possibly more in the future :)\n\n### Officially supported languages:\n* C/C++\n* Less/CSS\n* HTML\n\n### Pictures\n\n![Cpp file](https://raw.githubusercontent.com/Tym17/visualdark-syntax/master/Gallery/Cpp-sourcefile.png)\n\n![Less file](https://raw.githubusercontent.com/Tym17/visualdark-syntax/master/Gallery/Less-sourcefile.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Tym17/visualdark-syntax/issues"
+  },
+  "homepage": "https://github.com/Tym17/visualdark-syntax#readme",
+  "_id": "visualdark-syntax@1.0.0",
+  "_shasum": "782f0ade2f3dd2d551a5b97c56835dc5ee496838",
+  "_resolved": "file:../d-116516-25860-ufut6d/package.tgz",
+  "_from": "../d-116516-25860-ufut6d/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

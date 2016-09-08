@@ -1,0 +1,7 @@
+xcompmgr &
+stjerm -k f12 -o 60 -w 700 -h 850 -p topleft -fn Monospace &
+stjerm -k f6 -o 60 -w 1100 -h 850 -p bottomright -fn Monospace &
+stjerm -k f7 -o 60 -w 1100 -h 850 -p topright -fn Monospace &
+stjerm -k f8 -o 60 -w 1100 -h 850 -p right -fn Monospace &
+
+

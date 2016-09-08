@@ -1,0 +1,295 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['kID']))
+{
+	$rootHost = $_SERVER['HTTP_HOST'];
+	$signinURL = 'http://'.$rootHost.'/signin.php';
+	print 'You must login first!';
+	print '<meta http-equiv="refresh" content="1;URL='.$signinURL.'" />';
+	exit();
+}
+
+include "core/thardferr_core.php";
+
+$kingdom = new kingdom();
+$kingdom->kingdomID = $_SESSION['kID'];
+$kingdom->db_read_kingdom();
+
+$unit = array();
+
+if (isset($_POST['submit']))
+{
+	for ($i = 1; $i < 8; $i++)
+	{
+		{
+			if (!is_numeric($_POST['unit'.$i]) or ($_POST['unit'.$i] == null))
+			{
+				$_POST['unit'.$i] = 0;
+			}
+			$unit[$i] = $_POST['unit'.$i];
+		}
+	}
+	$unitBuildResponse = $kingdom->build_units($unit);
+	//print $unitBuildResponse;
+	$kingdom->db_write_kingdom($kingdom);
+}
+
+if (isset($_POST['submit2']))
+{
+	for ($i = 1; $i < 8; $i++)
+	{
+		{
+			if (!is_numeric($_POST['unit'.$i]) or ($_POST['unit'.$i] == null))
+			{
+				$_POST['unit'.$i] = 0;
+			}
+			$unit[$i] = $_POST['unit'.$i];
+		}
+	}
+	$unitDisbandResponse = $kingdom->destroy_units($unit, 1);
+	//print $unitDisbandResponse;
+	$kingdom->db_write_kingdom($kingdom);
+}
+
+
+
+$sql_configUnit = 'SELECT unitSubID, unitName, popToTrain, costWep1, costWep2, '.
+				  'costWep3, costWep4, costWep5, costWep6, costGold '.
+				  'FROM configUnit where raceID = '.$kingdom->raceID;
+$pdo_configUnit = $db->query($sql_configUnit);
+
+$sql_configRace = 'SELECT unitsPerGH FROM configRace WHERE raceID ='.$kingdom->raceID;
+$pdo_configRace = $db->query($sql_configRace);
+foreach ($pdo_configRace as $race_row)
+{
+	$unitsPerGH = (int) $race_row['unitsPerGH'];
+}
+
+//total units - home units and units on train
+$unitTotal = (int) $kingdom->unitHome1 + (int) $kingdom->unitHome2 + (int) $kingdom->unitHome3 + (int) $kingdom->unitHome4 + (int) $kingdom->unitHome5 + (int) $kingdom->unitHome6;
+$spaceTotalGH = $unitsPerGH * (int) $kingdom->buildingQty7;
+$spaceAvailGH = $spaceTotalGH - $unitTotal;
+
+$unitName = array();
+$popToTrain = array();
+$costWep = array(); // [wepnumber][unitSubID] => [actual cost]
+$costWep = array_fill(0, 7, array_fill(0, 7, 0));
+$costGold = array();
+
+foreach ($pdo_configUnit as $unit_row)
+{
+	$unitName[$unit_row['unitSubID']] = $unit_row['unitName'];
+	$popToTrain[$unit_row['unitSubID']] = (int) $unit_row['popToTrain'];
+	$costGold[$unit_row['unitSubID']] = (int) $unit_row['costGold'];
+	$costWep[1][$unit_row['unitSubID']] = (int) $unit_row['costWep1'];
+	$costWep[2][$unit_row['unitSubID']] = (int) $unit_row['costWep2'];
+	$costWep[3][$unit_row['unitSubID']] = (int) $unit_row['costWep3'];
+	$costWep[4][$unit_row['unitSubID']] = (int) $unit_row['costWep4'];
+	$costWep[5][$unit_row['unitSubID']] = (int) $unit_row['costWep5'];
+	$costWep[6][$unit_row['unitSubID']] = (int) $unit_row['costWep6'];
+}
+
+$sql_configWeapons = 'SELECT wepNum, wepName '.
+		'FROM configWeapons where raceID = '.$kingdom->raceID;
+$pdo_configWeapons = $db->query($sql_configWeapons);
+
+$wepName = array();
+
+foreach ($pdo_configWeapons as $wep_row)
+{
+	$wepName[$wep_row['wepNum']] = $wep_row['wepName'];
+}
+
+print '<html>
+
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/table.css">
+</head>
+
+
+<body>
+
+<img class="centered" src="../pics/thardferr.jpg">
+<table class="top">
+<tr class="top">
+<th class="top">Rank</th>
+<th class="top">Kingdom</th>
+<th class="top">Castles</th>
+<th class="top">Land</th>
+<th class="top">Kingdom Strength</th>
+<th class="top">Race</th>
+</tr>
+<tr class="top">
+  <td class="top">'.$kingdom->kingdomRank.'</td>
+  <td class="top">'.$kingdom->playerName.'('.$kingdom->kingdomName.')</td>
+  <td class="top">'.$kingdom->buildingQty1.'</td>
+  <td class="top">'.$kingdom->land.'</td>
+  <td class="top">'.$kingdom->kingdomStrength.'</td>
+  <td class="top">'.$kingdom->kingdomRace.'</td>
+</tr>
+</table>
+
+<h2>Military</h2>
+
+<div class="row">
+
+<figure>
+<table class="summary">
+	<tr class="summary">
+	<td class="summaryLeft">Population:</td>
+	<td class="summary">'.$kingdom->popTotal.'</td>
+	</tr>
+	<tr class="summary">
+		<td class="summaryLeft">Gold:</td>
+		<td class="summary">'.$kingdom->gold.'</td>
+	</tr>
+	<tr class="summary">
+		<td class="summaryLeft">Wood:</td>
+		<td class="summary">'.$kingdom->wood.'</td>
+	</tr>
+	<tr class="summary">
+		<td class="summaryLeft">Iron:</td>
+		<td class="summary">'.$kingdom->iron.'</td>
+	</tr>
+	<tr class="summary">
+		<td class="summaryLeft">Food:</td>
+		<td class="summary">'.$kingdom->food.'</td>
+	</tr>
+	<tr class="summary">
+		<td class="summaryLeft">Available Space:</td>
+		<td class="summary">'.$kingdom->spaceAvailGH.' / '.$kingdom->spaceTotalGH.'</td>
+	</tr>
+
+</table>
+</figure>
+
+<figure>
+<table class="summary">';
+
+for ($i = 1; $i < 7; $i++)
+{
+	$property1 = 'wepQty'.$i;
+
+	print '<tr class="summary">
+	<td class="summaryLeft">'.$wepName[$i].':</td>
+	<td class="summary">'.$kingdom->$property1.'</td>
+	</tr>';
+}
+print '
+</table>
+</figure>
+
+</div>
+
+<p class="title"> Each day we train: ';
+
+$newUnit = $kingdom->produce_units();
+
+for ($i = 1; $i < 8; $i++)
+{
+	print $newUnit[$i].' '.$unitName[$i].'. ';
+}
+
+print '</p>
+
+
+<form action="military.php" method="post">
+
+<table class="tech">
+<tr class="tech">
+<th class="tech">Name</th>
+<th class="tech">Gold</th>
+<th class="tech">Weapons Required</th>
+<th class="tech">Unit Home</th>
+<th class="tech">On Train</th>
+<th class="tech">To Train</th>
+</tr>';
+
+for ($i = 1; $i < 8; $i++)
+{
+	$property1 = 'unitOnTrain'.$i;
+	$property2 = 'unitHome'.$i;
+	print '<tr class="tech">
+	<td class="techLeft">'.$unitName[$i].'</td>
+	<td class="tech">'.$costGold[$i].'</td>';
+	print '<td class="techLeft">';
+	for ($j = 1; $j < 7; $j++)
+	{
+
+		if ((int) $costWep[$j][$i] > 0)
+		{
+			print $costWep[$j][$i].' '.$wepName[$j].'. ';
+		}
+	}
+	print '</td>';
+	print '<td class="techHighlight">'.$kingdom->$property2.'</td>';
+	print '<td class="tech">'.$kingdom->$property1.'</td>
+	<td class="tech"><input type="number" name="unit'.$i.'" value=0></td>
+	</tr>';
+}
+print '
+
+</table>';
+
+print '<p class="title">'.$unitBuildResponse.'</p>
+
+<p class="title">
+<input type="submit" name="submit" value="Train Units">
+</p>
+
+
+</form>';
+
+
+//disband Units
+print '
+<form action="military.php" method="post">
+
+<table class="destroy">
+<tr class="destroy">
+<th class="destroy">Name</th>
+<th class="destroy">Weapons Recovered</th>
+<th class="destroy">Unit Home</th>
+<th class="destroy">On Train</th>
+<th class="destroy">To Disband</th>
+</tr>';
+
+for ($i = 1; $i < 8; $i++)
+{
+	$property1 = 'unitOnTrain'.$i;
+	$property2 = 'unitHome'.$i;
+	print '<tr class="destroy">
+	<td class="destroyLeft">'.$unitName[$i].'</td>';
+	print '<td class="destroyLeft">';
+	for ($j = 1; $j < 7; $j++)
+	{
+
+		if ((int) $costWep[$j][$i] > 0)
+		{
+			print $costWep[$j][$i].' '.$wepName[$j].'. ';
+		}
+	}
+	print '</td>';
+	print '<td class="destroyHighlight">'.$kingdom->$property2.'</td>';
+	print '<td class="destroy">'.$kingdom->$property1.'</td>
+	<td class="destroy"><input type="number" name="unit'.$i.'" value=0></td>
+	</tr>';
+}
+print '
+
+</table>
+<p class="title">'.$unitDisbandResponse.'</p>
+<p class="title">
+<input type="submit" name="submit2" value="Disband Units">
+</p>
+
+
+</form>
+
+</body>
+</html>';
+?>
