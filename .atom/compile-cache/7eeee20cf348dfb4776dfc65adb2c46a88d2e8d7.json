@@ -1,1 +1,0 @@
-{"key":"characters","patterns":[{"name":"markup.character-reference.asciidoc","match":"(?<!\\\\)(&)(\\S+?)(;)","captures":{"1":{"name":"constant.character.asciidoc"},"3":{"name":"constant.character.asciidoc"}}}]}

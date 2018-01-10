@@ -1,1 +1,0 @@
-{"key":"block-attribute","patterns":[{"match":"^\\[(|\\p{Blank}*[\\p{Word}\\{,.#\"'%].*)\\]$","name":"markup.heading.block-attribute.asciidoc","captures":{"0":{"patterns":[{"include":"#block-attribute-inner"}]}}}]}

@@ -1,1 +1,0 @@
-{"key":"horizontal-rule","patterns":[{"name":"constant.other.symbol.horizontal-rule.asciidoc","match":"^(?:'|<){3,}$|^ {0,3}([-\\*'])( *)\\1\\2\\1$"}]}
