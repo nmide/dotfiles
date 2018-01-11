@@ -43,8 +43,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tobyS/vmustache'
 Plugin 'janko-m/vim-test'
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'neomake/neomake'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'neomake/neomake'
 
 " Markdown / Writting
 Plugin 'reedes/vim-pencil'
@@ -60,28 +60,31 @@ Plugin 'tpope/vim-fugitive'
 
 " PHP Support
 Plugin 'phpvim/phpcd.vim'
+Plugin 'w0rp/ale'
 Plugin 'tobyS/pdv'
 
+" I don't use Elixir or Erlang
+
 " Erlang Support
-Plugin 'vim-erlang/vim-erlang-tags'
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-compiler'
+" Plugin 'vim-erlang/vim-erlang-tags'
+" Plugin 'vim-erlang/vim-erlang-runtime'
+" Plugin 'vim-erlang/vim-erlang-omnicomplete'
+" Plugin 'vim-erlang/vim-erlang-compiler'
 
 " Elixir Support 
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'avdgaag/vim-phoenix'
-Plugin 'mmorearty/elixir-ctags'
-Plugin 'mattreduce/vim-mix'
-Plugin 'BjRo/vim-extest'
-Plugin 'frost/vim-eh-docs'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'tpope/vim-endwise'
-Plugin 'jadercorrea/elixir_generator.vim'
-Plugin 'mhinz/vim-mix-format'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'avdgaag/vim-phoenix'
+" Plugin 'mmorearty/elixir-ctags'
+" Plugin 'mattreduce/vim-mix'
+" Plugin 'BjRo/vim-extest'
+" Plugin 'frost/vim-eh-docs'
+" Plugin 'slashmili/alchemist.vim'
+" Plugin 'tpope/vim-endwise'
+" Plugin 'jadercorrea/elixir_generator.vim'
+" Plugin 'mhinz/vim-mix-format'
 
 " Elm Support
-Plugin 'lambdatoast/elm.vim'
+" Plugin 'lambdatoast/elm.vim'
 
 " Theme / Interface
 Plugin 'AnsiEsc.vim'
@@ -175,10 +178,6 @@ let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_enable_elixir_checker = 1
 " let g:syntastic_elixir_checkers = ["elixir"]
-
-" Neomake settings
-autocmd! BufWritePost * Neomake
-let g:neomake_elixir_enabled_makers = ['mix', 'credo', 'dogma']
 
 " Vim-PDV Configuration 
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
