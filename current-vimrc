@@ -2,6 +2,7 @@
 " Allan MacGregor Vimrc configuration 
 """""""""""""""""""""""""""""""""""""
 set encoding=utf8
+set mouse=a
 
 """" START Vundle Configuration 
 
